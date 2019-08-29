@@ -55,6 +55,8 @@ describe GildedRose do
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 0
     end
+
+    # DONE
   end
   # describe '#update_conjured_item' do
   #   it 'degrades in quality twice as fast as normal items' do
