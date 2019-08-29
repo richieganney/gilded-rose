@@ -36,13 +36,7 @@ describe GildedRose do
       expect(items[0].quality).not_to be > 50
     end
 
-      # DONE
-
-    it 'the quality of an item is never more than 50' do
-      items = [Item.new('Sulfuras, Hand of Ragnaros', 0, 80)]
-      GildedRose.new(items).update_quality
-      expect(items[0].quality).to eq 80
-    end
+     # DONE
 
     it '"Backstage passes" increases in quality by two points if its SellIn value is less than 10 days' do
       items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 10, 30)]

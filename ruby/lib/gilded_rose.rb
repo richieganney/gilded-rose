@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'item'
+require 'sulfuras'
 require 'pry'
 
 class GildedRose
@@ -49,8 +50,6 @@ class GildedRose
       end
     end
   end
-
-  def update_conjured_item; end
 end
 
-# binding.pry
+binding.pry
