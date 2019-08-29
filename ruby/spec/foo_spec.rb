@@ -25,9 +25,9 @@ describe Foo do
     end
 
     it 'the quality of an item is never negative' do
-        item = Item.new('foo', -1, 0)
-        Foo.update_quality(item)
-        expect(item.quality).not_to be < 0
+      item = Item.new('foo', -1, 0)
+      Foo.update_quality(item)
+      expect(item.quality).not_to be < 0
     end
   end
 end

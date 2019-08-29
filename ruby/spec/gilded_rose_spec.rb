@@ -36,7 +36,7 @@ describe GildedRose do
       expect(items[0].quality).not_to be > 50
     end
 
-     # DONE
+    # DONE
 
     it '"Backstage passes" increases in quality by two points if its SellIn value is less than 10 days' do
       items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 10, 30)]

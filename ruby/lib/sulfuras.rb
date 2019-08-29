@@ -1,6 +1,7 @@
-class Sulfuras
+# frozen_string_literal: true
 
-  def self.update_quality(item) 
-    raise 'Cannot assess this item. Try again' if !item.name.include?("Sulfuras")
+class Sulfuras
+  def self.update_quality(item)
+    raise 'Cannot assess this item. Try again' unless item.name.include?('Sulfuras')
   end
 end
