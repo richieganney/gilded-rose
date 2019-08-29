@@ -1,16 +1,15 @@
-class Foo
+# frozen_string_literal: true
 
-  def initialize(item)
-    @item = item
-  end
+class Foo
+  MINIMUM_QUALITY = 0
 
   def self.update_quality(item)
-    special_items = ["Aged Brie", "Sulfuras", "Backstage passes", "Conjured"]
+    special_items = ['Aged Brie', 'Sulfuras', 'Backstage passes', 'Conjured']
     special_items.each do |items|
-        raise "Cannot assess this item. Try again" if items[0..8].include?(item.name)
+      raise 'Cannot assess this item. Try again' if items[0..8].include?(item.name)
     end
-    if item.sell_in < 0
-      item.quality -=2 
-    end   
+    item.sell_in < 0 ? item.quality -= 2 : item.quality -= 1
+    item.sell_in -= 1
+    item.quality = 0 if item.quality < MINIMUM_QUALITY
   end
 end
