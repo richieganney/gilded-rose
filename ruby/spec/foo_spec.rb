@@ -5,15 +5,21 @@ describe Foo do
 
   describe "#update_quality" do
     it "does not change the name" do
-      item = Item.new("foo", 0, 0)
+      item = Item.new("orange", 0, 0)
       Foo.update_quality(item)
-      expect(item.name).to eq "foo"
+      expect(item.name).to eq "orange"
     end
 
     it 'once the sell by date has passed, quality degrades twice as fast' do
-      item = Item.new("foo", -1, 20)
+      item = Item.new("apple", -1, 20)
       Foo.update_quality(item)
       expect(item.quality).to eq 18
+    end
+
+    it 'raises an error if item includes any of the special items' do
+      item = Item.new("Aged Brie", 10, 10)
+      item_2 = Item.new("Sulfuras, Hand of Ragnaros", 10, 10)
+      expect { Foo.update_quality(item) }.to raise_error "Cannot assess this item. Try again"
     end
   end
 end
