@@ -3,8 +3,6 @@
 require 'gilded_rose'
 
 describe GildedRose do
-  let(:item) { double :item }
-
   describe '#update_quality' do
     it 'does not change the name' do
       items = [Item.new('foo', 0, 0)]
@@ -13,7 +11,7 @@ describe GildedRose do
     end
 
     it 'once the sell by date has passed, quality degrades twice as fast' do
-      items = [Item.new('foo', 0, 20)]
+      items = [Item.new('foo', -1, 20)]
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 18
     end
@@ -25,9 +23,9 @@ describe GildedRose do
     end
 
     it '"Aged Brie" actually increases in quality the older it gets' do
-      items = [Item.new('Aged Brie', 0, 40)]
+      items = [Item.new('Aged Brie', 0, 45)]
       GildedRose.new(items).update_quality
-      expect(items[0].quality).to be > 40
+      expect(items[0].quality).to be > 45
     end
 
     it 'the quality of an item is never more than 50' do
@@ -35,8 +33,6 @@ describe GildedRose do
       GildedRose.new(items).update_quality
       expect(items[0].quality).not_to be > 50
     end
-
-    # DONE
 
     it '"Backstage passes" increases in quality by two points if its SellIn value is less than 10 days' do
       items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 10, 30)]
@@ -55,14 +51,7 @@ describe GildedRose do
       GildedRose.new(items).update_quality
       expect(items[0].quality).to eq 0
     end
-
-    # DONE
   end
-  # describe '#update_conjured_item' do
-  #   it 'degrades in quality twice as fast as normal items' do
-  #     items = [Item.new("Conjured", 10, 30)]
-  #     GildedRose.new(items).update_conjured_item
-  #     expect(items[0].quality).to eq 28
-  #   end
-  # end
 end
+
+# DONE

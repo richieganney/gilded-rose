@@ -29,5 +29,11 @@ describe Foo do
       Foo.update_quality(item)
       expect(item.quality).not_to be < 0
     end
+
+    it '"Conjured" items degrade twice as fast' do
+      item = Item.new('Conjured', 5, 10)
+      Foo.update_quality(item)
+      expect(item.quality).to eq 8
+    end
   end
 end

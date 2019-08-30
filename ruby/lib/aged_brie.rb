@@ -8,6 +8,6 @@ class AgedBrie
 
     item.sell_in -= 1
     item.quality += 1
-    item.quality = 50 if item.quality > MAXIMUM_QUALITY
+    item.quality = MAXIMUM_QUALITY if item.quality > MAXIMUM_QUALITY
   end
 end
