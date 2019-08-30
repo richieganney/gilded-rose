@@ -19,7 +19,7 @@ Feel free to make any changes to the UpdateQuality method and add any new code a
 
 ## Solution
 
-I decided to separate the every type of item into an individual class, with the original GildedRose class calling upon the others. Each class used class methods as it was not neccesary to create objects to update the quality of an item. This solution encapsulates the behaviour of the various items.
+I decided to separate every type of item into an individual class, with the original GildedRose class calling upon the others. Each class uses class methods as it was not neccesary to create objects to update the quality of an item. This solution encapsulates the behaviour of the various items.
 
 ## Gems
 
